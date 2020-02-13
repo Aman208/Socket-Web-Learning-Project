@@ -28,10 +28,19 @@ io.on('connection' , (socket) =>{
 
   socket.on('createMessage' , (message)=>{
     console.log('createMessage' , message);
-    io.emit('newMessage'  ,  {
+    socket.broadcast.emit('newMessage'  ,  {
        from : message.from ,
        text : message.text ,
        createdAt : new Date().getTime()
+    });
+
+  });
+
+  socket.on('onTyping' , (message) => {
+    console.log('onTyping' , message);
+    
+    socket.broadcast.emit('someoneTyping'  ,  {
+       from : message.from ,
     });
 
   });

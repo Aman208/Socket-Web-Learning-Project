@@ -4,30 +4,101 @@
 
 <head>
   <meta charset="utf-8">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 </head>
 
 <body>
-  <p>Welcome to the chat app</p>
+<div class="container clearfix">
+ <!-- <<--- NAme form ---- > -->
+  <div>
+    <form id="name-form" >
+      <input type="text" id="user-name" name="name" value="" placeholder="Your Name..">
+      <input type="submit" value="Submit">
+    </form>
+  </div>
+
+
+    <div class="people-list" id="people-list">
+      <div class="search">
+        <input type="text" placeholder="search" />
+        <i class="fa fa-search"></i>
+      </div>
+
+
+      <ul class="list">
+        <li class="clearfix">
+          <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/chat_avatar_01.jpg" alt="avatar" />
+          <div class="about">
+            <div class="name">Group Chat</div>
+            <div class="status">
+              <i class="fa fa-circle online"></i> online
+            </div>
+          </div>
+        </li>
+        
+        <li class="clearfix">
+          <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/chat_avatar_02.jpg" alt="avatar" />
+          <div class="about">
+            <div class="name">Aiden Chavez</div>
+            <div class="status">
+              <i class="fa fa-circle offline"></i> left 7 mins ago
+            </div>
+          </div>
+        </li>
+        
+ 
+        
+      </ul>
+    </div>
+    
+    <div class="chat">
+      <div class="chat-header clearfix">
+        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/chat_avatar_01_green.jpg" alt="avatar" />
+        
+        <div class="chat-about">
+          <div class="chat-with">Chat with Group</div>
+          <div class="chat-num-messages">already 12 messages</div>
+        </div>
+        <i class="fa fa-star"></i>
+      </div> <!-- end chat-header -->
+      
+      <div class="chat-history">
+        <ul id="message-list">
+         
+      
+        </ul>
+        
+      </div> <!-- end chat-history -->
+
+      <!-- -----typing dots ----> 
+
+      <div class="typer">
+       
+        </div>
+
+        <!-- ---end of typing dots ----> 
+      
+      <div class="chat-message clearfix">
+        <form id="message-form">
+        <textarea name="message-to-send" id="message-to-send" oninput="onTyping()" placeholder ="Type your message" rows="3"></textarea>
+                
+        <input type="submit" value="Submit">
+      </form>
+
+      </div> <!-- end chat-message -->
+      
+    </div> <!-- end chat -->
+    
+  </div> <!-- end container -->
+
 
   <script src="https://code.jquery.com/jquery-3.4.1.min.js">
   </script>
-
-  <form id="message-form">
-    From:<br>
-    <input type="text" id="name" name="from" value="">
-    <br>
-    Text:<br>
-    <input type="text" id="text" name="text" value="">
-    <br><br>
-    <input type="submit" value="Submit">
-  </form>
-
-  <ul id="messages">
-   
-  </ul>
-
   <script src="/socket.io/socket.io.js"></script>
   <script src='./JS//index.js'></script>
+  <script src="/JS/Libs/moment.js"></script>
 </body>
 
 </html>
